@@ -1,23 +1,387 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
+
+ <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutomotiveBusiness",
+    "name": "지프 유지비 전문가이드",
+    "image": "https://도메인/지프유지비.png",
+    "url": "https://도메인/지프유지비",
+    "telephone": "031-123-4567",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "경기도 평택시 ○○로 ○○",
+      "addressLocality": "평택시",
+      "addressRegion": "경기",
+      "postalCode": "17900",
+      "addressCountry": "KR"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "전국"
+    },
+    "priceRange": "₩₩₩",
+    "description": "2026년 지프 유지비 전문 정보 제공 – 랭글러, 그랜드 체로키 등 모델별 소모품 교체 비용, 장단점 분석, 저렴한 견적 비교 방법 안내"
+  }
+  </script>
+
+  <!-- FAQPage Schema for improved snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Q1: 지프(Jeep) 차량의 평균 유지비는 얼마인가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A1: 지프 유지비는 모델(랭글러 vs 그랜드 체로키 vs 레니게이드)과 운행 환경에 따라 크게 달라집니다. 랭글러의 경우 일반적인 소모품 교체 비용이 국산차 대비 1.5배~2배 정도 높게 형성되어 있으며, 보험료와 유류비를 포함한 연간 총 예상 비용은 300만 원에서 500만 원 사이로 책정될 수 있습니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Q2: 공식 서비스 센터와 사설 정비소의 비용 차이는 얼마나 되나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A2: 공식 서비스 센터는 순정 부품을 사용하고 보증 기간을 유지할 수 있다는 장점이 있지만, 사설 정비소보다 평균 30~50% 정도 더 높은 가격을 청구할 수 있습니다. 특히 랭글러의 경우, 사설 업체 중에서도 지프 전문 업체는 부품 수급 및 노하우 측면에서 강점을 보이며, '저렴한곳'을 찾는 소비자에게 좋은 대안이 됩니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Q3: 지프의 고질병이나 단점 때문에 유지비가 더 많이 드나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A3: 지프 랭글러의 경우 오일 누유, 부식, 파워 스티어링 펌프 문제 등이 고질병으로 언급되기도 합니다. 이러한 단점을 보완하기 위해 주기적인 점검이 필요하며, 장거리 운행이 잦다면 보증 기간 내에 꼼꼼히 체크하는 것이 장기적인 유지비 절감에 도움이 됩니다. 최근 모델들은 이러한 문제점들이 개선되고 있습니다."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* 부드럽고 다채로운 색상 + 계층 잘 보이도록 개선 */
+    /* 지프 이미지에 어울리는 색상 팔레트: 흙빛, 녹색, 파란색 (자연/오프로드) */
+    body { font-family: 'Noto Sans KR', sans-serif; margin:0; padding:0; background:#f4f7f5; color:#333; line-height:1.7; font-size:16px; }
+    header { max-width:900px; margin:20px auto; padding:30px 20px; background:linear-gradient(135deg, #e6f0f3 0%, #ffffff 100%); border-radius:12px; box-shadow:0 6px 15px rgba(0,0,0,0.08); text-align:center; position:relative; overflow:hidden; }
+    section, footer { max-width:900px; margin:20px auto; padding:25px; background:#ffffff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.05); }
+    h1 { font-size:2.6rem; color:#2c3e50; margin-bottom:10px; font-weight:700; }
+    h2 { font-size:2.1rem; color:#0b3d91; border-bottom:3px solid #a3c4ff; padding-bottom:10px; margin-top:30px; margin-bottom:15px; font-weight:700; }
+    h3 { font-size:1.6rem; color:#1a5276; margin-top:20px; margin-bottom:10px; font-weight:600; }
+    p, li, dd, dt, table { font-size:1.05rem; line-height:1.8; color:#4a4a4a; }
+    ul, ol { padding-left:25px; margin-bottom:20px; }
+    li { margin-bottom:8px; }
+    table { width:100%; border-collapse: collapse; margin:25px 0; font-size:0.95rem; }
+    th, td { border:1px solid #e0e6ec; padding:15px; text-align:left; }
+    th { background:#4a6fa5; color:#ffffff; font-weight:700; border-color:#4a6fa5; }
+    td { background:#f9fcfd; }
+    a { color:#0b3d91; text-decoration:none; transition: color 0.3s ease; }
+    a:hover { text-decoration:underline; color:#0056b3; }
+    .btn-cta {
+      display:inline-block;
+      padding:16px 35px;
+      background:#4285f4;
+      color:#fff;
+      font-weight:700;
+      border:none;
+      border-radius:30px;
+      box-shadow:0 6px 12px rgba(66, 133, 244, 0.4);
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+      cursor:pointer;
+      text-decoration:none;
+      text-align:center;
+      font-size:1.1rem;
+      margin-top:20px;
+    }
+    .btn-cta:hover {
+      background:#3367d6;
+      transform:translateY(-3px);
+      box-shadow:0 8px 16px rgba(66, 133, 244, 0.5);
+    }
+    .img-container { text-align:center; margin-bottom:20px; }
+    .img-container img { max-width:100%; height:auto; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
+    .anchor { display:block; position:relative; top:-80px; visibility:hidden; }
+    .content-box { border:1px solid #dcdcdc; border-radius:8px; padding:20px; background:#f9f9f9; margin-bottom:20px; }
+    .key-highlight { color:#d9534f; font-weight:700; }
+    .note { font-style:italic; font-size:0.9rem; color:#6a6a6a; margin-top:10px; }
+    /* Form styling update */
+    form label { display:block; margin-bottom:8px; font-weight:bold; color:#333; }
+    form input[type="text"], form input[type="tel"], form select, form textarea {
+      width:calc(100% - 16px); padding:10px; margin-bottom:15px; border:1px solid #e0e6ec; border-radius:6px; box-sizing:border-box; background:#fcfcfc; font-size:1rem;
+    }
+    form button[type="submit"] { width:100%; padding:15px; margin-top:10px; }
+    .external-link { color:#0a70d1; font-style:italic; }
+
+    /* 반응형 */
+    @media(max-width:768px) {
+      body { padding:10px; font-size:15px; }
+      header, section, footer { margin:10px auto; padding:15px; }
+      h1 { font-size:2rem; }
+      h2 { font-size:1.7rem; }
+      .btn-cta { width:100%; padding:15px 0; font-size:1rem; }
+      th, td { padding:10px; font-size:0.9rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>지프(Jeep) 유지비: 2026년 모델별 예상 비용 완벽 가이드</h1>
+    <p>랭글러, 그랜드 체로키, 레니게이드 등 주요 모델의 소모품 교체 주기와 실제 오너들의 '내돈내산' 후기를 바탕으로 2026년 예상 유지비를 상세히 분석합니다.</p>
+    <div class="img-container">
+      <img src="https://images.pexels.com/photos/1107567/pexels-photo-1107567.jpeg?auto=compress&cs=tinysrgb&w=800" alt="지프 랭글러 차량 이미지" loading="lazy" width="800" height="450">
+    </div>
+    <a class="btn-cta" href="#cost-analysis">모델별 유지비 견적 분석 바로가기</a>
+  </header>
+
+  <section id="table-of-contents">
+    <span id="service-area-anchor" class="anchor"></span>
+    <h2>목차: 지프 유지비 가이드 핵심 내용</h2>
+    <nav aria-label="페이지 내 이동">
+      <ul>
+        <li><a href="#introduction">지프 유지비, 왜 중요하게 봐야 할까?</a></li>
+        <li><a href="#cost-analysis">모델별 유지비 비교 분석 (랭글러, 그랜드 체로키 등)</a></li>
+        <li><a href="#maintenance-schedule">2026년 소모품 교체 주기 및 예상 비용 (표/그래프)</a></li>
+        <li><a href="#hidden-cost">숨겨진 비용과 단점: 고질병 및 보험료 분석</a></li>
+        <li><a href="#comparison-tips">유지비 절감 노하우 및 추천 업체 비교</a></li>
+        <li><a href="#faq">자주 묻는 질문 (FAQ)</a></li>
+        <li><a href="#contact">맞춤형 견적 상담 신청</a></li>
+      </ul>
     </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+  </section>
+
+  <section id="introduction">
+    <span id="introduction-anchor" class="anchor"></span>
+    <h2>지프 유지비, 왜 중요하게 봐야 할까?</h2>
+    <p>지프(Jeep)는 오프로드의 대명사로 불리는 독보적인 매력을 가진 브랜드입니다. 튼튼한 차체와 강력한 퍼포먼스로 많은 팬을 보유하고 있지만, 국산차나 일반 수입차와는 다른 유지비 구조를 가지고 있어 차량 구매 전 꼼꼼한 확인이 필수입니다. 특히 2026년형 신차를 고려하거나 중고차 구매를 생각하는 분이라면 '지프 유지비 얼마 정도 들까?'라는 질문을 가장 먼저 던져보게 됩니다. 단순히 차량 가격만 보고 구매했다가는 예상치 못한 비용 지출로 인해 곤란을 겪을 수 있기 때문입니다. 이 가이드는 지프 모델별 소모품 교체 비용, 고질병, 보험료 등 유지비의 모든 측면을 깊이 있게 다룹니다.</p>
+
+    <h3>지프 차량의 장점과 단점 (유지비 측면)</h3>
+    <p>지프 차량은 일반적인 차량과 달리 유지비 측면에서 장단점이 명확합니다.</p>
+    <ul>
+      <li><strong>장점:</strong>
+        <ul>
+          <li><strong>높은 감가율 방어:</strong> 특히 랭글러 모델의 경우 중고차 시장에서 감가율이 낮은 편입니다. 중고차 가격 방어가 잘 되어 장기적인 총 소유 비용(TCO)이 생각보다 높지 않을 수 있습니다.</li>
+          <li><strong>뛰어난 내구성:</strong> 오프로드 주행을 염두에 둔 튼튼한 설계 덕분에 하부 부품의 내구성이 뛰어나며, 극한 환경에서도 잘 버팁니다.</li>
+          <li><strong>풍부한 커스터마이징 시장:</strong> 수많은 애프터마켓 부품과 튜닝 업체(전문 업체)가 존재하여, 차량의 개성을 살리면서 유지 보수를 할 수 있습니다.</li>
+        </ul>
+      </li>
+      <li><strong>단점:</strong>
+        <ul>
+          <li><strong>수입차 특성상 높은 부품 가격:</strong> 국산차 대비 부품 가격이 높으며, 특히 공식 서비스 센터(딜러사) 이용 시 수리 견적 금액이 상당합니다.</li>
+          <li><strong>낮은 연비:</strong> 랭글러나 그랜드 체로키의 경우 차량 무게와 공기 저항으로 인해 연비 효율이 낮아 유류비(연료비) 지출이 많습니다.</li>
+          <li><strong>잦은 소모품 교체 주기:</strong> 오프로드 특성상 일부 소모품은 일반 차량보다 교체 주기가 짧을 수 있습니다.</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section id="cost-analysis">
+    <span id="cost-analysis-anchor" class="anchor"></span>
+    <h2>모델별 유지비 비교 분석: 랭글러, 그랜드 체로키, 레니게이드</h2>
+    <p>지프는 랭글러(Wrangler)와 그랜드 체로키(Grand Cherokee)를 필두로, 레니게이드(Renegade), 컴패스(Compass), 글래디에이터(Gladiator) 등 다양한 라인업을 보유하고 있습니다. 각 모델별로 유지비의 '평균 금액'과 '예상 비용'이 크게 달라지므로, 자신의 라이프스타일과 맞는 모델을 선택하고 유지비 견적을 미리 파악하는 것이 중요합니다.</p>
+
+    <h3>1. 지프 랭글러 유지비 (JL, JK 모델 중심)</h3>
+    <p>지프의 상징인 랭글러는 가장 많은 '내돈내산' 후기와 '디시인사이드' 등 커뮤니티에서 활발하게 정보가 공유되는 모델입니다. 랭글러 유지비의 특징은 다음과 같습니다.</p>
+    <ul>
+      <li><strong>소모품 교체 비용:</strong> 국산 중형 SUV 대비 1.5배~2배 수준입니다. 랭글러는 특히 오프로드 주행 시 하체 부품에 가해지는 부담이 크기 때문에, 소모품 교체 주기를 철저히 지켜야 합니다.</li>
+      <li><strong>타이어 비용:</strong> 랭글러는 기본적으로 올 터레인(All-Terrain) 타이어를 장착하는 경우가 많아 일반 타이어 대비 가격이 높습니다. 타이어 4짝 교체 시 '얼마'의 비용이 드는지 미리 확인해야 합니다.</li>
+      <li><strong>고질병:</strong> 랭글러 JL 모델의 경우 초기형에서 오일 누유 문제나 윈도우 스위치, 냉각수 관련 고질병이 보고되기도 했습니다. 신차 구매 시에는 보증 기간을 꼼꼼히 체크하고, 중고차 구매 시에는 전문가의 점검이 필요합니다.</li>
+    </ul>
+
+    <h3>2. 지프 그랜드 체로키 유지비 (WK, KL 모델 중심)</h3>
+    <p>그랜드 체로키는 도심형 SUV로서 랭글러와는 유지비 구조가 다릅니다. 고급 SUV 시장을 겨냥한 만큼 실내 편의사양이 많고, 복잡한 전자 장비가 탑재되어 있습니다. 유지비 '단점'으로는 랭글러보다 높은 보험료와 고급 부품 사용으로 인한 수리 비용이 꼽힙니다.</p>
+    <ul>
+      <li><strong>파워트레인 다양성:</strong> 2.0L 터보 엔진 외에도 3.6L V6 엔진(오버랜드 모델) 등이 있습니다. 엔진 오일 교환 비용이 랭글러보다 높을 수 있으며, 엔진오일량이 많아 '비용'이 더 들 수 있습니다.</li>
+      <li><strong>전자 장비:</strong> 에어 서스펜션(Air Suspension)이나 첨단 운전자 보조 시스템(ADAS) 등 복잡한 전자 장비의 고장 시 수리 '가격'이 만만치 않습니다.</li>
+    </ul>
+
+    <h3>3. 지프 레니게이드 및 컴패스 유지비</h3>
+    <p>레니게이드와 컴패스는 지프의 엔트리급 SUV로, 상대적으로 '저렴한곳'에서 유지보수가 가능합니다. 1.3L 터보 엔진이 탑재된 모델이 많아 유류비 부담이 적고, 소모품 비용도 랭글러 대비 낮습니다. '가성비' 좋은 지프를 찾는 소비자에게 추천됩니다. 하지만 소형 모델이라도 수입차 부품 가격 정책을 따르기 때문에, 국산 준중형 SUV보다는 유지비가 더 나올 수 있다는 점을 인지해야 합니다.</p>
+
+    <h3>4. 기타 모델 유지비 (글래디에이터, 체로키, 코만치, 패트리어트 등)</h3>
+    <p>최근에는 픽업트럭인 글래디에이터가 랭글러의 인기를 이어가고 있습니다. 글래디에이터는 랭글러와 많은 부품을 공유하지만, 픽업트럭 특성상 취득세와 자동차세 등 세금 부분에서 '혜택'을 받을 수 있습니다. 이 외에도 단종된 모델인 체로키(Cherokee), 패트리어트(Patriot), 리버티(Liberty) 등도 중고차 시장에서 거래되지만, 부품 수급의 어려움 때문에 유지비 '단점'이 더욱 부각될 수 있습니다.</p>
+
+    <div class="content-box">
+      <h3>모델별 주요 키워드 요약</h3>
+      <p>지프 모델 선택 시 유지비에 영향을 미치는 주요 키워드:</p>
+      <dl>
+        <dt><strong>랭글러 (JL, JK, TJ, YJ):</strong></dt>
+        <dd>오프로드, 소모품 교체, 타이어 가격, 보증 기간, 오일 누유, 감가율 방어</dd>
+        <dt><strong>그랜드 체로키 (WK, KL):</strong></dt>
+        <dd>고급 SUV, V6 엔진, 에어 서스펜션, 전자 장비, 보험료, 연비</dd>
+        <dt><strong>레니게이드 (Renegade), 컴패스 (Compass):</strong></dt>
+        <dd>가성비, 엔트리 SUV, 저렴한곳, 유류비 절감, 소형 SUV, 신규 가입 혜택</dd>
+        <dt><strong>글래디에이터 (Gladiator):</strong></dt>
+        <dd>픽업트럭, 세금 혜택, 랭글러와 부품 공유, 적재 공간, 튜닝 비용</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section id="maintenance-schedule">
+    <span id="maintenance-schedule-anchor" class="anchor"></span>
+    <h2>2026년 소모품 교체 주기 및 예상 비용 (표/그래프)</h2>
+    <p>지프 유지비에서 가장 큰 비중을 차지하는 것은 소모품 교체 비용입니다. 아래 표는 지프 공식 서비스 센터 기준(2026년 예상)과 일반 사설 업체 기준을 비교한 것으로, '평균'적인 '금액'을 산출한 것입니다. 정확한 '견적'은 차량 연식과 주행 환경에 따라 달라질 수 있습니다.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>소모품 항목</th>
+          <th>교체 주기 (권장)</th>
+          <th>지프 공식 센터 예상 비용 (랭글러/그랜드 체로키 기준)</th>
+          <th>사설 전문 업체 예상 비용</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>엔진 오일 및 필터</td>
+          <td>1만 km 또는 1년 (가혹 주행 시 6개월)</td>
+          <td>150,000원 ~ 250,000원</td>
+          <td>100,000원 ~ 180,000원</td>
+        </tr>
+        <tr>
+          <td>브레이크 패드 (앞)</td>
+          <td>3만 ~ 4만 km</td>
+          <td>300,000원 ~ 400,000원</td>
+          <td>150,000원 ~ 250,000원</td>
+        </tr>
+        <tr>
+          <td>미션 오일 (변속기 오일)</td>
+          <td>4만 ~ 6만 km</td>
+          <td>400,000원 ~ 600,000원</td>
+          <td>250,000원 ~ 400,000원</td>
+        </tr>
+        <tr>
+          <td>타이어 교체 (4짝)</td>
+          <td>4만 ~ 6만 km (AT 타이어 기준)</td>
+          <td>1,000,000원 ~ 1,600,000원</td>
+          <td>800,000원 ~ 1,200,000원</td>
+        </tr>
+        <tr>
+          <td>배터리 교체</td>
+          <td>3년 ~ 5년</td>
+          <td>250,000원 ~ 350,000원</td>
+          <td>150,000원 ~ 200,000원</td>
+        </tr>
+        <tr>
+          <td>와이퍼 블레이드</td>
+          <td>1년 ~ 2년</td>
+          <td>50,000원 ~ 80,000원</td>
+          <td>30,000원 ~ 50,000원</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="note">※ 위 비용은 2026년 예상 '평균 금액'이며, 모델, 부품 등급, 공임비 변동에 따라 실제 '가격'은 달라질 수 있습니다.</div>
+
+    <p><strong>주요 소모품별 상세 분석:</strong></p>
+    <ul>
+      <li><strong>엔진 오일:</strong> 지프는 엔진 오일 교환 주기를 1만 km 또는 1년으로 권장하지만, 가혹 주행이 많은 한국 환경에서는 6개월에 한 번 교체하는 운전자들이 많습니다. 특히 랭글러 JL 2.0L 터보 엔진의 경우 오일 누유 고질병이 있어 오일 관리에 더욱 신경 써야 합니다.</li>
+      <li><strong>타이어:</strong> 랭글러의 상징적인 타이어는 유지비에 큰 영향을 미칩니다. 순정 타이어는 가격이 비싸기 때문에, 많은 오너들이 사설 업체에서 '할인'을 받아 국산 AT 타이어로 교체하는 '추천' 방법이 선호됩니다.</li>
+      <li><strong>미션 오일:</strong> 미션 오일은 8단 변속기를 사용하는 지프 차량에서 중요한 부분입니다. 공식 센터에서는 '견적'이 높게 나오지만, 미션 오일 교체 시기를 잘 맞추면 차량의 수명을 늘릴 수 있습니다.</li>
+    </ul>
+  </section>
+
+  <section id="hidden-cost">
+    <span id="hidden-cost-anchor" class="anchor"></span>
+    <h2>지프 유지비의 숨겨진 비용과 단점: 고질병 및 보험료 분석</h2>
+    <p>지프의 유지비에는 소모품 외에도 숨겨진 비용이 존재합니다. 특히 '내돈내산' 후기를 보면 고질병과 높은 보험료에 대한 언급이 많습니다. '장단점'을 비교할 때 이러한 잠재적 비용을 반드시 고려해야 합니다.</p>
+
+    <h3>1. 지프 모델별 고질병과 수리 비용</h3>
+    <p>모든 자동차에는 고질병이 있지만, 지프는 오프로드 차량 특성상 특정 부위에 문제가 집중될 수 있습니다. 랭글러 JK 모델에서는 '윈도우 모터 고장'이나 '오일 누유'가 잦았고, JL 모델에서는 '냉각수 순환' 문제나 '파워 스티어링 펌프' 이슈가 보고되기도 했습니다. 이러한 '단점'을 보완하려면 정기적인 점검과 예방 정비가 필수입니다. 사설 '전문 업체'를 통해 '저렴한곳'에서 수리할 수 있지만, 핵심 부품은 순정 부품을 사용하는 것이 좋습니다.</p>
+
+    <h3>2. 보험료와 자동차세: 유지비에서 큰 비중</h3>
+    <p>수입차이기 때문에 국산차 대비 보험료가 높게 책정되는 경우가 많습니다. 특히 신차 구매 시에는 '보험료'를 반드시 포함하여 '총 비용'을 계산해야 합니다. 차량 가격이 높을수록 보험료도 함께 상승하므로, 랭글러나 그랜드 체로키의 보험료는 상당한 수준입니다. 또한 자동차세는 배기량에 따라 책정되므로, 3.6L 엔진을 장착한 모델은 자동차세 부담이 큽니다. '신규 가입' 시 '할인' 혜택을 제공하는 보험사를 비교하고 '지원금'이나 '상품권' 이벤트를 확인하는 것도 좋습니다.</p>
+  </section>
+
+  <section id="comparison-tips">
+    <span id="comparison-tips-anchor" class="anchor"></span>
+    <h2>지프 유지비 절감 노하우 및 추천 업체 비교</h2>
+    <p>지프 유지비를 절감하기 위한 노하우는 '전문 업체' 선택과 '정보 수집'에 달려 있습니다. 특히 네이버, 구글 검색 및 유튜브 채널에서 '내돈내산' 후기를 찾아보고 '비교'하여 최적의 방법을 찾는 것이 현명합니다. 'AI 챗봇' (Gemini, ChatGPT)을 활용하여 부품 가격을 비교하는 것도 좋은 방법입니다.</p>
+
+    <h3>1. 공식 서비스 센터 vs 사설 전문점: '차이점' 분석</h3>
+    <p><strong>공식 서비스 센터 (딜러사):</strong></p>
+    <ul>
+      <li><strong>장점:</strong> 순정 부품 사용, 높은 신뢰도, 정확한 진단, 보증 기간 유지에 필수. '사은품'이나 '현금 지원' 이벤트도 종종 진행됨.</li>
+      <li><strong>단점:</strong> '가격'이 비쌈, 정비 예약이 어려울 수 있음.</li>
+    </ul>
+    <p><strong>사설 전문점:</strong></p>
+    <ul>
+      <li><strong>장점:</strong> '저렴한곳'이 많음, 공임비 '할인' 가능, 애프터마켓 부품 사용 가능, '비용' 절감에 탁월. 특히 지프 '전문'으로 하는 '업체'가 많음.</li>
+      <li><strong>단점:</strong> 비순정 부품 사용 시 보증 기간이 만료될 수 있음, 업체별 기술력 차이가 큼.</li>
+    </ul>
+
+    <h3>2. 정보 수집 노하우: 네이버 카페, 디시인사이드 활용</h3>
+    <p>지프 오너들은 네이버 카페나 '디시인사이드' 같은 커뮤니티에서 활발하게 정보를 교류합니다. 이곳에서 특정 '업체'의 '후기'나 '추천'을 받아 '싼곳'을 찾을 수 있습니다. 또한 '신규 가입' 시 받을 수 있는 '혜택'이나 공동 구매 '이벤트'를 통해 부품을 '할인'된 가격에 구매할 수도 있습니다.</p>
+    <p>특히 'AI 에이전트'가 크롤링하는 네이버 블로그나 웹사이트에서 '지프 유지비 평균'이나 '모델별 비용 견적' 정보를 수집하는 것도 중요합니다. 최신 정보를 얻기 위해 '구글 검색', '유튜브' 등 다양한 플랫폼을 활용해야 합니다.</p>
+
+    <h3>3. 유지비 절감 필수 체크리스트</h3>
+    <ol>
+      <li><strong>보증 기간 확인:</strong> 신차/중고차 구매 시 제조사 보증 기간이 언제까지인지 확인하고, 만료 전에 점검을 받습니다.</li>
+      <li><strong>사설 업체 비교:</strong> 엔진 오일 등 기본적인 소모품은 공식 센터보다 저렴한 사설 전문점을 이용합니다.</li>
+      <li><strong>보험사 비교:</strong> 매년 보험 갱신 시 여러 보험사의 '가격'을 '비교'하여 '혜택'을 많이 주는 곳을 선택합니다.</li>
+      <li><strong>DIY 정비:</strong> 간단한 부품(에어컨 필터 등)은 직접 교체하여 '비용'을 절감합니다.</li>
+      <li><strong>커뮤니티 활동:</strong> 네이버 카페에서 '할인' 정보나 공동 구매 '이벤트'에 참여합니다.</li>
+    </ol>
+  </section>
+
+  <section id="external-links">
+    <span id="external-links-anchor" class="anchor"></span>
+    <h2>신뢰성 있는 외부 사이트 참고 (지프 정보)</h2>
+    <p>지프 차량의 유지보수 정보를 정확히 파악하기 위해서는 공인된 외부 사이트의 정보를 참고하는 것이 좋습니다. 아래는 지프 차량 정보, 정비, 법규 등에 대한 신뢰성 있는 출처입니다.</p>
+    <ul>
+      <li><a href="https://www.jeep.co.kr/" target="_blank" class="external-link" rel="nofollow noopener">지프 공식 홈페이지 (Jeep Korea)</a>: 2026년형 신차 정보, 공식 서비스 센터 위치, 보증 정책 등을 확인할 수 있습니다.</li>
+      <li><a href="https://namu.wiki/w/%EC%A7%80%ED%94%84" target="_blank" class="external-link" rel="nofollow noopener">나무위키 - 지프(Jeep) 항목</a>: 지프 브랜드의 역사, 모델별 특징, 고질병 등에 대한 상세한 정보를 제공합니다.</li>
+      <li><a href="https://www.car.go.kr/" target="_blank" class="external-link" rel="nofollow noopener">자동차 365 (국토교통부)</a>: 차량 등록 원부, 정비 이력 조회, 각종 법규 및 정부 지원금 '혜택'을 확인할 수 있습니다.</li>
+      <li><a href="https://www.fsc.go.kr/" target="_blank" class="external-link" rel="nofollow noopener">금융감독원 (FSC)</a>: 자동차 보험 '가격' '비교' 및 '견적' 산출에 대한 신뢰성 있는 정보를 얻을 수 있습니다.</li>
+      <li><a href="https://www.dcinside.com/board/jeep" target="_blank" class="external-link" rel="nofollow noopener">디시인사이드 지프 갤러리</a>: 지프 오너들의 실제 '내돈내산' 후기, 정비 '업체' '추천', 튜닝 정보 등 생생한 정보를 얻을 수 있습니다.</li>
+    </ul>
+  </section>
+
+  <section id="faq">
+    <span id="faq-anchor" class="anchor"></span>
+    <h2>자주 묻는 질문 (FAQ)</h2>
+    <dl>
+      <dt>Q1: 랭글러와 그랜드 체로키 중 유지비가 더 많이 드는 모델은 무엇인가요?</dt>
+      <dd>A: 일반적으로 랭글러는 소모품 교체 주기가 짧고, 튜닝 비용이 추가될 수 있어 유지비가 높을 수 있습니다. 그랜드 체로키는 고급 기능과 복잡한 전자 장비, V6 엔진 모델의 높은 세금으로 인해 유지비 '단점'이 있습니다. '평균'적으로는 랭글러의 부품 교체 비용이 더 잦을 수 있습니다.</dd>
+      <dt>Q2: 지프 차량도 '저렴한곳'에서 정비가 가능한가요?</dt>
+      <dd>A: 네, 가능합니다. 지프 전문 사설 '업체'를 찾으면 '저렴한' '가격'에 정비가 가능합니다. 특히 엔진 오일, 미션 오일 등 소모품 교환은 사설 전문 업체에서 '할인'을 받아 진행하는 것이 일반적입니다.</dd>
+      <dt>Q3: 중고 지프 구매 시 유지비를 줄이는 팁이 있나요?</dt>
+      <dd>A: 중고 지프는 '내돈내산' 후기를 참고하여 '고질병'을 꼼꼼히 체크해야 합니다. 보증 기간이 남은 차량을 구매하거나, 연식이 오래된 모델(JK, TJ 등)을 구매할 경우 부품 수급 여부를 확인하는 것이 중요합니다. 또한 '신규 가입' '혜택'을 통해 보험료를 절감해야 합니다.</dd>
+    </dl>
+  </section>
+
+  <section id="contact">
+    <span id="contact-anchor" class="anchor"></span>
+    <h2>나만의 지프 유지비 맞춤 견적 상담 문의</h2>
+    <p>모델명, 연식, 주행거리를 알려주시면 2026년 기준으로 정확한 유지비 '견적'과 '추천' 관리 방법을 안내해 드립니다. 'AI' 에이전트 분석을 통한 '가격' '비교' 서비스를 제공합니다.</p>
+    <form action="/submit" method="POST" style="max-width:600px; margin:auto;">
+      <label for="name">이름<span style="color:red;">*</span></label>
+      <input type="text" id="name" name="name" required placeholder="예: 홍길동" />
+
+      <label for="phone">연락처<span style="color:red;">*</span></label>
+      <input type="tel" id="phone" name="phone" required placeholder="010-1234-5678" pattern="[0-9\-]+" />
+
+      <label for="model">지프 모델<span style="color:red;">*</span></label>
+      <select id="model" name="model" required>
+        <option value="">모델 선택</option>
+        <option value="랭글러">랭글러 (JL/JK)</option>
+        <option value="그랜드 체로키">그랜드 체로키</option>
+        <option value="레니게이드">레니게이드</option>
+        <option value="컴패스">컴패스</option>
+        <option value="글래디에이터">글래디에이터</option>
+        <option value="기타">기타 모델 (체로키, 리버티 등)</option>
+      </select>
+
+      <label for="year">차량 연식 (예: 2020년식)</label>
+      <input type="text" id="year" name="year" placeholder="예: 2020" />
+
+      <label for="message">추가 문의 사항 (주행 거리, 특이 사항 등)</label>
+      <textarea id="message" name="message" rows="4" placeholder="예: 주행거리 5만km, 최근에 엔진 오일 교환했습니다."></textarea>
+
+      <label>선호하는 답변 방식</label>
+      <input type="checkbox" id="email_contact" name="contact_method" value="email"> 이메일 &nbsp;
+      <input type="checkbox" id="phone_contact" name="contact_method" value="phone" checked> 전화 상담
+
+      <button type="submit" class="btn-cta">유지비 견적 문의하기</button>
+    </form>
+  </section>
+
+  
